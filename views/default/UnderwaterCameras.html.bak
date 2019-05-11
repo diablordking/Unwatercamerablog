@@ -1,0 +1,28 @@
+{{
+  active = "UnderwaterCameras"
+  sidebar_enabled = True
+  response.title = "Underwater Camera"
+  record = db.category(db.category.id==1).description
+}}
+
+{{extend "layout.html"}}
+<h2>{{=response.title}}</h2>
+<div class="article">
+
+{{ for post in posts:}}    
+    {{ if post.category == 1 :}}
+ <div class="book_box">
+   
+   <a href="{{=URL('show',args=post.id)}}">{{=post.title}}</a>
+
+	<a href="{{=URL('show',args=post.id)}}"><img class="resize" src="{{=URL('download',args=post.image)}}" ></a>
+</div>
+    {{else:}}
+    
+    {{pass}}
+    
+        {{pass}}
+
+<p class="ptext"> 
+{{=XML(record)}}
+</p>

@@ -1,0 +1,23 @@
+{{
+  active = "about"
+  sidebar_enabled = True
+
+}}
+{{extend "layout.html"}}
+
+<h2> {{=response.title}} </h2>
+{{ for post in posts:}}    
+    {{ if post.category == 6 :}}
+ <div class="book_box">
+   
+   <a href="{{=URL('show',args=post.id)}}">{{=post.title}}</a>
+
+	<p class="text">
+        {{=XML(post.description)}}
+     </p>
+</div>
+    {{else:}}
+    
+    {{pass}}
+    
+        {{pass}}

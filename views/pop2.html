@@ -1,0 +1,19 @@
+{{posts = db(db.blog_post).select(limitby=(0, 5), orderby='<random>')}}
+{{pop=0}}
+
+           <h5 class="head">Random Article</h5>  
+{{ for post in posts:}}
+ {{pop = pop+1}}
+                {{if pop == 6:}}
+                    {{break}}
+                
+                <a href="{{=URL('show',args=post.id)}}">
+                    <div class="editor text-center">
+                        <h3>{{=post.title}}</h3>
+                        <p></p>
+                        <label>{{=post.created_on}}</label>
+                        <span></span>
+                    </div>
+                </a>
+
+{{pass}}

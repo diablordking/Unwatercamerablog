@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+<h1>{{=response.title}}</h1>
+{{=form}}
+  <div class="w2p_flash alert alert-dismissable">{{=session.flash or ''}}</div>

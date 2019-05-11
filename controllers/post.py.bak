@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+
+
+###############################################################################
+# web2py modelless scaffold app
+# Bruno Cezar Rocha <rochacbruno@gmail.com>
+#
+# Posts
+#
+# in each controller you choose which handlers to import
+###############################################################################
+
+from handlers.post import Post
+
+
+def index():
+    post = Post('list_all')
+    return post.render("post/listposts")
+
+
+def new():
+    post = Post('create_new')
+    return post.render("post/newpost")
+
+
+def edit():
+    post = Post()
+    post.edit_post(request.args(0))
+    return post.render("post/editpost")
+
+
+def show():
+    post = Post()
+    post.show(request.args(0))
+    post_author = db.auth_user(post.posted_by)
+    db.comments.post_id.default = post.id
+    db.comments.posted_by.default = auth.user.id
+    db.comments.post_date.default = request.now
+    comments = db(db.comments.post_id == post.id).select()
+    form = crud.create(db.comments)
+    redirect(URL('post', 'showpost'))
+
+
+    return locals()

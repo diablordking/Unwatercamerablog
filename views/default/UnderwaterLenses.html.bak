@@ -1,0 +1,34 @@
+{{
+  active = "UnderwaterLenses"
+  sidebar_enabled = True
+  response.title = "Underwater Lenses"
+}}
+
+{{extend "layout.html"}}
+
+<h2>{{=response.title}}</h2>
+<div class="article">
+
+{{ for post in posts:}}    
+    {{ if post.category == 3 :}}
+ <div class="book_box">
+   
+   <a href="{{=URL('show',args=post.id)}}">{{=post.title}}</a>
+
+	<a href="{{=URL('show',args=post.id)}}"><img class="resize" src="{{=URL('download',args=post.image)}}" ></a>
+</div>
+    {{else:}}
+    
+    {{pass}}
+    
+        {{pass}}
+<h2>Recommended Underwater dSLR Lens Choices</h2>
+<p class="ptext"> 
+
+In this guide to the best underwater lenses, we will look at the best choices for dslr cameras such as the Canon 5d MKIII, Canon 7D Mark II, Nikon D7200, D810, Nikon D70=100 & D300s, Nikon D3, Olympus E3, Olympus e620, and other dSLR models.
+ 
+Lenses can be a very personal choice. It largely depends on what you enjoy taking photos of.</p>
+<p class="ptext"> 
+You will probably want to start out buying one wide-angle lens, and 1 macro lens. Please see my lens recommendations below. If you are looking to move into a dSLR system, don't skimp on the lens. Start off with a good macro or wide-angle lens, and at least 1 good strobe. Skimp on the body and/or housing if you need to save money
+
+Scroll down this page to see detailed underwater lens recommendations. </p>

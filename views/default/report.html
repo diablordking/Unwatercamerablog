@@ -1,0 +1,57 @@
+{{extend 'layout.html'}}
+<h1>Report</h1>
+<p class = "ptext"><h2>
+Better user management </h2> <br>
+User has better management system. For Exp. patron role can change every post. But Other users only can change own post For this purpose Website has post edit and manage pages. Manage page is for patron. Postedit is for users. 
+<br>
+Users can delete,view,edit, list their post easily "sqlform  system" 
+<br>
+User has Profil Pic and User can change their password.
+<br>
+Users can edit or create their post in editor. Editor is <a href="http://nicedit.com/">Nicedit</a>.It is a javascript code in layout.html. You can look at in <a href ="{{=URL('default','create')}}">Create page</a> <a href = "{{=URL('default','postedit')}}">Post Edit</a>
+<br>
+Beside For Users and login staff I create module for better management. They are in datamodel/user.py , handle/user.py  handlers/base.py   datamodel/basemodel.py , datamodel/myapp.py , helpers/images.py 
+
+</p>
+
+<p class = "ptext">
+<h2>
+    Form system
+</h2>  <br>
+Additional DB tables are category,blog_post,blog_comment . I seperate post and comment .Because post and comment has diffrent requirement .<br>
+Also I used some advance custom validators. They are @auth.requires_login() and @auth.requires_membership('patron') in default.py. it makes it easy to control pages.
+<br>
+User can upload image and it stored in download folder.
+<br>
+
+</p>
+
+<p class = "ptext">
+    <h2>
+        More dynamic content</h2>  <br>
+Additional sidebar "Random Article" generate random post in sidebar<br>
+Also index page show only last 2 article <a href="{{=URL('default','index')}}">Index page Link</a> And show newest one code in default.py it is " posts = db(db.blog_post).select(orderby=~db.blog_post.created_on) "
+<br>
+Website has ads sidebar in index page <a href="{{=URL('default','index')}}">Index page Link</a>
+User has Profil Pic
+<br>
+    Beside Categories filter post and show only category post. For Exp <a href="{{=URL('default','UnderwaterCameras')}}">Underwater Cameras page</a> - <a href="{{=URL('default','MacroTutorials')}}">Macro Tutorials</a>
+<br>
+<br>
+<h2>
+    Original Template in static  
+</h2>
+<a href = "{{=URL('static','konstructs-web.zip')}}/" >Konstructs-a-blogging Template</a>
+<br>
+Login : mehmet9595@gmail.com
+<br>
+Password : 12345
+<br>
+İt is in "patron" role I mean manager
+<br>
+Login : diablordking2@gmail.com
+<br>
+Password : 1234
+<br>
+İt is in "User" role It is normal user 
+</p>

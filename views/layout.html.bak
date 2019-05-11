@@ -1,0 +1,73 @@
+{{
+import sys
+from handlers.post import Post
+sys.setrecursionlimit(150000)
+sidebar_enabled = globals().get("sidebar_enabled", True)
+features = True
+popular = True
+commentt = True
+posts = db(db.blog_post).select(orderby=~db.blog_post.created_on)
+
+}}
+
+
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{{=URL('static','css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="{{=URL('static','js/jquery.min.js')}}"></script>
+<!-- Custom Theme files -->
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+						
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Konstructs Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <div class="topbar">
+      <div class="container">    
+        <div class="sixteen columns">
+          <div id="navbar">{{='auth' in globals() and auth.navbar(separators=(' ',' | ',''))}}</div>
+          {{is_mobile=request.user_agent().is_mobile}}
+      {{if response.menu:}}
+          <div id="menu">
+             {{=MENU(response.menu, _class='mobile-menu' if is_mobile else 'sf-menu',mobile=is_mobile)}}
+          </div>
+          {{pass}}
+        </div>
+      </div>
+    </div>
+</head>
+<body>
+	{{ include "header.html"}}
+			<!-- script for menu -->
+			<div class="clearfix"></div>
+        </div>
+	</div>
+	<div class="container">
+		<div class="content">
+			<div class="single-page">
+				<div class="print-main">
+					{{include}}
+				</div>
+			</div>
+            {{include "alt.html"}}
+	<div class="footer">
+		{{include "footer.html"}}
+
+
+	</div>
+</body>
+</html>

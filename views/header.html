@@ -1,0 +1,84 @@
+{{
+title = globals().get("title", "")
+sidebar_enabled = globals().get("sidebar_enabled", True)
+
+
+def menu_items():
+     #  active = "UnderwaterCameras"
+   active = globals().get('active', "")
+   items = [     ("UnderwaterCameras", "Underwater Cameras"),("UnderwaterLenses", "Underwater Lenses"),("about", "About")]
+   mylist = UL()         
+   for (path, text) in items:
+      href = URL(path)
+      if path == active: 
+          new_item= LI(A(text, _class="active" ,_href=href ))
+          mylist.components.append(new_item)          
+      else:  
+          new_item= LI(A(text, _href=href))
+          mylist.components.append(new_item)          
+          pass
+      pass
+   return mylist 
+   
+def menu_items2():
+   #  active = "UnderwaterCameras"
+   active = globals().get('active', "")
+   items = [     ("UnderwaterCameras", "Underwater Cameras"), ("MacroTutorials", "Macro Tutorials"),
+            ("UnderwaterLenses", "Underwater Lenses"),("WideAngleTutorials", "Wide Angle Tutorials"),("about", "About")]
+   mylist = UL()         
+   for (path, text) in items:
+      href = URL(path)
+      if path == active: 
+          new_item= LI(A(text, _class="active" ,_href=href ))
+          mylist.components.append(new_item)          
+      else:  
+          new_item= LI(A(text, _href=href))
+          mylist.components.append(new_item)          
+          pass
+      pass
+   return mylist            
+}}
+
+<title>{{=response.title}} </title>
+<!-- header-section-starts -->
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<a href="{{=URL('default','index.html')}}"><h1>Uwcamera</h1></a>
+			</div>
+			<div class="pages">
+
+{{=menu_items()}}
+
+
+
+			</div>
+			<div class="navigation">
+				<ul>
+					
+					<li><a  href="{{=URL('default','about.html')}}">About Us</a></li>
+					<li><a href="{{=URL('default','report.html')}}">Report</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="header-bottom">
+            <div class="type">
+				<h5>Tabs</h5>
+			</div>
+			<span class="menu"></span>
+			<div class="list-nav">
+				<ul>                                                                 
+					 {{=menu_items2()}} 
+				</ul>
+			</div>
+			<!-- script for menu -->
+				<script>
+				$( "span.menu" ).click(function() {
+				  $( ".list-nav" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>

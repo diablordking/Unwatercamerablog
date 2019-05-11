@@ -1,0 +1,10 @@
+<div class="col-md-5 content-right content-right-top"> 
+                {{include  "pop2.html"}}
+    <div class="editors-pic-grids">
+ <h5 class="head">Ads</h5>  
+        
+        
+        
+<img class="reklam" src="{{=URL('static','images/sealife.png')}}" alt="" />
+    </div>
+ </div>

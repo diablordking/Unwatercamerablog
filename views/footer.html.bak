@@ -1,0 +1,46 @@
+{{
+def menu_items3():
+   #  active = "UnderwaterCameras"
+   active = globals().get('active', "")
+   items = [     ("UnderwaterCameras", "Underwater Cameras"), ("MacroTutorials", "Macro Tutorials"),
+            ("UnderwaterLenses", "Underwater Lenses"),("WideAngleTutorials", "Wide Angle Tutorials"),("about", "About")]
+   mylist = UL()         
+   for (path, text) in items:
+      href = URL(path)
+      if path == active: 
+          new_item=A(text, _class="active" ,_href=href )
+          mylist.components.append(new_item)          
+      else:  
+          new_item= A(text, _href=href)
+          mylist.components.append(new_item)          
+          pass
+      pass
+   return mylist            
+}}
+<div class="footer-top">
+			<div class="container">
+				<div class="col-md-3 footer-links">
+					<h4>Other pages and things</h4>
+					{{=menu_items3()}}
+				</div>
+				<div class="col-md-3 footer-links span_66">
+					<a href="#">Flat product pic in Photoshop</a>
+					<a href="#">Cameras</a>
+					<a href="#">Tools </a>
+				</div>
+				<div class="col-md-3 footer-links">
+ 
+				</div>
+				<div class="col-md-3 footer-links">
+					
+				</div>	
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="copyrights">
+					<p>Mehmet Alp Albayraktaroğlu © 2016 All rights reserved | Template by Diablo</p>
+				</div>
+			</div>
+		</div>

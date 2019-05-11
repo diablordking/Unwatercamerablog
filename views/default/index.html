@@ -1,0 +1,79 @@
+{{
+
+popular = True
+title = globals().get("title", "")
+index=0
+alt =0
+}}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Detailed camera reviews for underwater photo and video, including specs, key features for u/w photography and     camera comparisons.</title>
+<link href="{{=URL('static','css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{{=URL('static','css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="{{=URL('static','js/jquery.min.js')}}"></script>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Konstructs Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <div class="topbar">
+      <div class="container">    
+        <div class="sixteen columns">
+          <div id="navbar">{{='auth' in globals() and auth.navbar(separators=(' ',' | ',''))}}</div>
+          {{is_mobile=request.user_agent().is_mobile}}
+      {{if response.menu:}}
+          <div id="menu">
+             {{=MENU(response.menu, _class='mobile-menu' if is_mobile else 'sf-menu',mobile=is_mobile)}}
+          </div>
+          {{pass}}
+        </div>
+      </div>
+    </div>   
+</head>
+<body>
+    <!-- header-section-starts -->
+   {{include "header.html"}}
+            <!-- script for menu -->
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="col-md-7 content-left">
+                <h5 class="head">in recent news</h5>
+                {{ for post in posts:}}
+                <div class="article">
+                    
+                    <h6>{{=post.category.name}} </h6>
+                    <td><a class="title" href="{{=URL('show',args=post.id)}}">{{=post.title}}</a></td>
+                    <a href="{{=URL('show',args=post.id)}}"><img src="{{=URL('download',args=post.image)}}" alt="{{=post.title}}" /></a>
+                    <p><td>{{=XML(post.description)}}</td> </p>
+                    <td>{{=post.created_on}}</td>
+                </div>
+                {{index = index+1}}
+                {{if index == 2:}}
+                    {{break}}
+                    {{pass}}
+                 {{pass}}
+            </div>
+            {{ if popular == True:}}
+                {{include "popular.html"}}
+            {{pass}}
+            <div class="clearfix"></div>
+            <div class="features">
+                <h5>Featured news</h5>
+                <h2>Sony – The new kid on the block An Elegant 4K Camera</h2>
+            </div>
+{{ include "alt.html"  }}
+    <div class="footer">
+        {{include "footer.html"}}
+    </div>
+</body>
+</html>

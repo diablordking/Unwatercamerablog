@@ -1,0 +1,24 @@
+{{alt=0}}
+{{posts = db(db.blog_post).select(orderby=~db.blog_post.created_on)}}
+{{ for post in posts:}}
+        <div class="col-md-7 single-content-left">
+                <div class="article">
+                    <h5 class="head">in recent news</h5>
+                    <h6>{{=post.category.name}} </h6>
+                    <a class="title" href="{{=URL('show',args=post.id)}}">{{=post.title}}</a>
+                   <a href="{{=URL('show',args=post.id)}}"><img src="{{=URL('download',args=post.image)}}" alt="{{=post.title}}" /></a>
+                    <p><td>{{=XML(post.description)}}</td> </p>
+                </div>
+            </div>
+            <div class="col-md-5 content-right content-right-top">
+{{include pop2.html}}
+            </div> 
+            <div class="clearfix"></div>          
+        </div>
+    </div>
+  {{alt = alt+1}}
+                {{if alt == 1:}}
+                    {{break}}
+                    {{pass}}
+                 {{pass}}
+{{pass}}
